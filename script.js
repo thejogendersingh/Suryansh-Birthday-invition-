@@ -229,39 +229,33 @@ function startPreloaderVideo(e) {
 }
 
 const bgSong = document.getElementById('bgSong');
-let songTimer = null;
 
-// Function to smoothly play the song after 3 seconds in hero section
-function playBirthdaySongWithDelay() {
-  if (songTimer) clearTimeout(songTimer);
-  
-  // 3-second delay as explicitly requested
-  songTimer = setTimeout(() => {
-    if (!isOpened || !bgSong) return;
-    bgSong.currentTime = 0;
-    bgSong.volume = 0;
-    const playPromise = bgSong.play();
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        isAudioPlaying = true;
-        if (musicToggleBtn) musicToggleBtn.classList.remove('muted');
-        
-        // Smoothly fade in volume over 1.5s
-        let vol = 0;
-        const fadeInInterval = setInterval(() => {
-          vol += 0.05;
-          if (vol >= 0.85) {
-            bgSong.volume = 0.85;
-            clearInterval(fadeInInterval);
-          } else {
-            bgSong.volume = vol;
-          }
-        }, 80);
-      }).catch(err => {
-        console.warn("Audio autoplay blocked by browser policy:", err);
-      });
-    }
-  }, 3000);
+// Function to immediately play the song when preloader ends and hero appears
+function playBirthdaySongNow() {
+  if (!bgSong) return;
+  bgSong.currentTime = 0;
+  bgSong.volume = 0;
+  const playPromise = bgSong.play();
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      isAudioPlaying = true;
+      if (musicToggleBtn) musicToggleBtn.classList.remove('muted');
+      
+      // Smoothly fade in volume over 0.8s
+      let vol = 0;
+      const fadeInInterval = setInterval(() => {
+        vol += 0.1;
+        if (vol >= 0.85) {
+          bgSong.volume = 0.85;
+          clearInterval(fadeInInterval);
+        } else {
+          bgSong.volume = vol;
+        }
+      }, 60);
+    }).catch(err => {
+      console.warn("Audio autoplay blocked by browser policy:", err);
+    });
+  }
 }
 
 // When video finishes, transition to Hero Section with dreamy white glow
@@ -275,8 +269,8 @@ function showHeroAfterVideo() {
   }
 
   setTimeout(() => {
-    // 2. Schedule Birthday Song to play after 3 seconds in hero section
-    playBirthdaySongWithDelay();
+    // 2. Play Birthday Song immediately in hero section
+    playBirthdaySongNow();
 
     // 3. Confetti blast
     triggerCelebrationConfetti();

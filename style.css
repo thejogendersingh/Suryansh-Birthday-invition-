@@ -291,22 +291,22 @@ body {
   border: none;
 }
 
-/* Character Cutout Container: Sized slightly larger as requested */
+/* Character Cutout Container: Sized minor sa small as requested */
 .suryansh-cutout-wrap {
   position: relative;
   width: 100%;
-  max-width: 220px; /* minor size increase for better visibility */
+  max-width: 210px; /* minor sa small for perfect balance */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 
 .suryansh-cutout-img {
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 4px 14px rgba(30, 58, 138, 0.09));
+  filter: drop-shadow(0 4px 12px rgba(30, 58, 138, 0.08));
 }
 
 /* Name centered directly inside the blue ribbon banner */
@@ -322,7 +322,7 @@ body {
 
 .ribbon-kid-name {
   font-family: 'Dancing Script', cursive;
-  font-size: 1.55rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #1e456e; /* gentle watercolor slate blue matching the banner */
   letter-spacing: 0.5px;
@@ -333,12 +333,12 @@ body {
 /* Aesthetic Cursive Title */
 .aesthetic-party-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 1.72rem;
+  font-size: 1.66rem;
   font-weight: 700;
   color: #315b88; /* Elegant slate watercolor blue perfectly matching the ribbon banner */
   letter-spacing: 0.5px;
   margin-top: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
   background: transparent;
   border: none;
@@ -394,24 +394,13 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 1px;
-  padding: 9px 24px;
+  letter-spacing: 0.8px;
+  padding: 8px 24px;
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(47, 110, 166, 0.35);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.celebrate-btn .btn-sparkle-icon {
-  width: 14px;
-  height: 14px;
-  stroke: #ffffff;
-  fill: rgba(255, 255, 255, 0.2);
 }
 
 .celebrate-btn:hover {
