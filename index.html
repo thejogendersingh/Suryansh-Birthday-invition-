@@ -38,95 +38,13 @@
     </div>
   </div>
 
-  <!-- MAIN HERO SECTION -->
+  <!-- MAIN HERO SECTION (Full-Screen Continuous Playing Video, No Text) -->
   <main id="heroSection" class="hero-section hidden-hero">
-    <div class="hero-content">
-      
-      <!-- Top Tagline -->
-      <div class="badge-tag">
-        <span class="neon-dot"></span> THE COOLEST PARTY OF THE YEAR
-      </div>
-
-      <!-- Main Heading -->
-      <h1 class="main-title">
-        <span class="neon-text-cyan">HAPPY</span>
-        <span class="neon-text-pink">BIRTHDAY!</span>
-      </h1>
-      
-      <div class="person-name-box">
-        <span class="celebrant-title">CELEBRATING</span>
-        <h2 class="celebrant-name neon-text-yellow" id="personName">SURI</h2>
-      </div>
-
-      <!-- Dynamic Countdown Timer -->
-      <div class="countdown-container" id="countdownBox">
-        <div class="time-block">
-          <span class="time-val" id="days">00</span>
-          <span class="time-label">DAYS</span>
-        </div>
-        <span class="time-colon">:</span>
-        <div class="time-block">
-          <span class="time-val" id="hours">00</span>
-          <span class="time-label">HOURS</span>
-        </div>
-        <span class="time-colon">:</span>
-        <div class="time-block">
-          <span class="time-val" id="minutes">00</span>
-          <span class="time-label">MINS</span>
-        </div>
-        <span class="time-colon">:</span>
-        <div class="time-block">
-          <span class="time-val" id="seconds">00</span>
-          <span class="time-label">SECS</span>
-        </div>
-      </div>
-
-      <!-- Event Details Card -->
-      <div class="details-glass-card">
-        <div class="detail-item">
-          <div class="detail-icon neon-border-cyan">📅</div>
-          <div class="detail-info">
-            <span class="label">DATE</span>
-            <span class="value" id="eventDate">Saturday, 24th October 2026</span>
-          </div>
-        </div>
-
-        <div class="detail-divider"></div>
-
-        <div class="detail-item">
-          <div class="detail-icon neon-border-pink">⏰</div>
-          <div class="detail-info">
-            <span class="label">TIME</span>
-            <span class="value" id="eventTime">07:30 PM Onwards</span>
-          </div>
-        </div>
-
-        <div class="detail-divider"></div>
-
-        <div class="detail-item">
-          <div class="detail-icon neon-border-yellow">📍</div>
-          <div class="detail-info">
-            <span class="label">VENUE</span>
-            <span class="value" id="eventVenue">Sky Lounge & Banquet Hall, MG Road</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="cta-group">
-        <button class="btn btn-primary" id="confettiBtn">
-          <span>🎊 Blast Confetti</span>
-        </button>
-        <a href="#eventVenue" class="btn btn-secondary" id="calendarBtn">
-          <span>📍 View Map / Location</span>
-        </a>
-      </div>
-
-      <!-- Personal Note -->
-      <p class="foot-note">
-        ✨ Join us for food, drinks, cake, lots of dancing & unforgettable memories! ✨
-      </p>
-
+    <div class="hero-video-wrapper">
+      <video id="heroVideo" class="hero-video" loop playsinline webkit-playsinline preload="auto">
+        <source src="assets/hero-bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </main>
 

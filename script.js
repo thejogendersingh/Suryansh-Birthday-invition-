@@ -223,6 +223,8 @@ function startPreloaderVideo(e) {
   }
 }
 
+const heroVideo = document.getElementById('heroVideo');
+
 // When video finishes, transition to Hero Section
 function showHeroAfterVideo() {
   if (isOpened) return;
@@ -237,11 +239,25 @@ function showHeroAfterVideo() {
   // Confetti blast
   triggerCelebrationConfetti();
 
-  // Hide video overlay smoothly & reveal hero section
+  // Hide preloader overlay smoothly & reveal hero section
   videoPreloaderOverlay.classList.add('hide-preloader');
   heroSection.classList.remove('hidden-hero');
   heroSection.classList.add('visible-hero');
   shootSideCannons();
+
+  // Start playing hero background video continuously on loop
+  if (heroVideo) {
+    heroVideo.currentTime = 0;
+    heroVideo.muted = false; // play with sound if available
+    const heroPromise = heroVideo.play();
+    if (heroPromise !== undefined) {
+      heroPromise.catch(err => {
+        console.warn("Hero video play error, playing muted fallback:", err);
+        heroVideo.muted = true;
+        heroVideo.play();
+      });
+    }
+  }
 }
 
 // Touch or click anywhere to play video
