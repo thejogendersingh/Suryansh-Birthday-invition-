@@ -2,10 +2,8 @@
 // BIRTHDAY INVITATION SCRIPT: ENVELOPE, MUSIC & CONFETTI
 // ===================================================
 
-// Set event target date for countdown (example default: 15 days ahead from now)
-const targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 15);
-targetDate.setHours(19, 30, 0, 0);
+// Set event target date for countdown: 4th October 2026, 06:00 PM
+const targetDate = new Date('October 4, 2026 18:00:00');
 
 // Elements
 const videoPreloaderOverlay = document.getElementById('videoPreloaderOverlay');

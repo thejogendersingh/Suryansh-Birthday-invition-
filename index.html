@@ -6,7 +6,7 @@
   <title>Birthday Celebration Invitation 🎉</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;1,600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
@@ -38,13 +38,65 @@
     </div>
   </div>
 
-  <!-- MAIN HERO SECTION (Full-Screen Continuous Playing Video, No Text) -->
+  <!-- MAIN HERO SECTION (Full-Screen Continuous Playing Video with Aesthetic Invitation Overlay) -->
   <main id="heroSection" class="hero-section hidden-hero">
     <div class="hero-video-wrapper">
       <video id="heroVideo" class="hero-video" poster="assets/hero-poster.jpg" loop playsinline webkit-playsinline muted preload="auto">
         <source src="assets/hero-bg.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+
+      <!-- Clean Aesthetic Birthday Invitation (No Emojis, Pure Elegance) -->
+      <div class="hero-invitation-card">
+        <p class="invite-pre-tag">YOU'RE INVITED TO CELEBRATE</p>
+        <p class="invite-milestone">1st Birthday Celebration</p>
+        
+        <h1 class="kid-name">Suryansh Singh Rathore</h1>
+
+        <!-- Premium Elegant Circular Photo Frame (Ready for image) -->
+        <div class="kid-photo-circle" id="photoCircle">
+          <div class="photo-inner">
+            <svg class="photo-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            <span class="photo-label">ADD PHOTO</span>
+          </div>
+        </div>
+
+        <!-- Date & Time (Clean Luxury Serif & Sans Typography) -->
+        <div class="event-details-text">
+          <span class="event-date">Sunday • 4th October 2026</span>
+          <span class="event-time">06:00 PM Onwards</span>
+        </div>
+
+        <!-- Clean Editorial Countdown Timer -->
+        <div class="hero-countdown" id="countdownBox">
+          <div class="count-unit">
+            <span class="count-num" id="days">00</span>
+            <span class="count-txt">Days</span>
+          </div>
+          <span class="count-sep">/</span>
+          <div class="count-unit">
+            <span class="count-num" id="hours">00</span>
+            <span class="count-txt">Hours</span>
+          </div>
+          <span class="count-sep">/</span>
+          <div class="count-unit">
+            <span class="count-num" id="minutes">00</span>
+            <span class="count-txt">Mins</span>
+          </div>
+          <span class="count-sep">/</span>
+          <div class="count-unit">
+            <span class="count-num" id="seconds">00</span>
+            <span class="count-txt">Secs</span>
+          </div>
+        </div>
+
+        <!-- Minimalist Button -->
+        <button class="celebrate-btn" id="confettiBtn">
+          <span>Join Celebration</span>
+        </button>
+      </div>
     </div>
   </main>
 
