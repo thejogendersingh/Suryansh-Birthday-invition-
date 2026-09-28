@@ -230,15 +230,15 @@ body {
 }
 
 /* ===================================================
-   PREMIUM AESTHETIC CALLIGRAPHY & GOLDEN PHOTO FRAME
+   WATERCOLOR BABY INVITATION (EXACTLY MATCHING REFERENCE)
    =================================================== */
 .hero-invitation-card {
   position: absolute;
-  top: 45%; /* balanced in the middle of the spacious white canvas */
+  top: 48.5%; /* centered perfectly within the video arch */
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 86%;
-  max-width: 340px;
+  width: 90%;
+  max-width: 330px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,126 +250,117 @@ body {
   border: none;
 }
 
-.invite-pre-tag {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 3.5px;
-  color: #64748b;
-  margin-bottom: 2px;
-}
-
-.invite-milestone {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #0284c7; /* elegant sky blue */
-  line-height: 1.1;
-  margin-bottom: 6px;
-}
-
-.kid-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.4rem, 8.5vw, 3.2rem);
-  font-weight: 400;
-  color: #1e3a8a; /* deep timeless royal navy */
-  line-height: 1.05;
-  letter-spacing: 0.5px;
-  margin: 0 0 18px 0;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
-}
-
-/* Luxury Circular Photo Frame (Ready for image) */
-.kid-photo-circle {
+/* Character Cutout Container with Name on Ribbon Banner */
+.suryansh-cutout-wrap {
   position: relative;
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  padding: 3.5px;
-  background: linear-gradient(135deg, #d4af37, #fef08a, #d4af37); /* subtle elegant champagne gold ring */
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25), 0 4px 10px rgba(0, 0, 0, 0.08);
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-}
-
-.kid-photo-circle:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.35);
-}
-
-.photo-inner {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #f8fafc;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  max-width: 195px; /* sized exactly to sit right between the bunting and details */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  color: #94a3b8;
-  overflow: hidden;
-  position: relative;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
-/* If user puts an <img> inside .photo-inner, it fits 100% */
-.photo-inner img {
+.suryansh-cutout-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.07));
 }
 
-.photo-svg-icon {
-  width: 22px;
-  height: 22px;
-  color: #d4af37;
-  stroke-width: 2;
-  margin-bottom: 3px;
+/* Name centered directly inside the blue ribbon banner */
+.ribbon-name-overlay {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  pointer-events: none;
 }
 
-.photo-label {
+.ribbon-kid-name {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.58rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #2b5c8f; /* gentle watercolor slate blue matching the banner */
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* 1ST BIRTHDAY PARTY Pill Badge (Identical to reference screenshot) */
+.birthday-party-badge {
+  background: #f0f7ff;
+  border: 1.5px solid #d9ebff;
+  border-radius: 20px;
+  padding: 5px 16px;
+  margin-bottom: 9px;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+}
+
+.birthday-party-badge span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 1.5px;
-  color: #64748b;
+  color: #3b82f6;
+  text-transform: uppercase;
 }
 
-/* Event Details (Date & Time with clean typographic contrast) */
+/* Event Details (Date, Time, Venue - Matching reference) */
 .event-details-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  margin-bottom: 18px;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
-.event-date {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #0f172a;
-  letter-spacing: 1px;
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-.event-time {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.76rem;
+.detail-icon-circle {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  background: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+}
+
+.detail-icon-circle svg {
+  width: 13px;
+  height: 13px;
+}
+
+.detail-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.86rem;
   font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #0284c7;
+  color: #475569;
+  letter-spacing: 0.2px;
 }
 
-/* Countdown: Clean Minimalist Line (No Box, Just Warm Typography) */
+.venue-text {
+  font-size: 0.82rem;
+  color: #475569;
+}
+
+/* Countdown Timer: Exactly matching reference */
 .hero-countdown {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin-bottom: 11px;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -379,55 +370,53 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 38px;
+  min-width: 32px;
 }
 
 .count-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #1e293b;
   line-height: 1;
 }
 
 .count-txt {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   color: #94a3b8;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .count-sep {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: #cbd5e1;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #94a3b8;
   line-height: 1;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
-/* Aesthetic Minimalist Celebration Button */
+/* Join Celebration Button: Exactly matching reference */
 .celebrate-btn {
-  background: #1e3a8a;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  padding: 10px 24px;
+  letter-spacing: 1px;
+  padding: 8px 22px;
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .celebrate-btn:hover {
-  background: #0284c7;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
 }
