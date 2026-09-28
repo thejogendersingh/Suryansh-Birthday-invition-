@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Celebration Invitation 🎉</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;1,600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Music Toggle Floating Button -->
+  <button id="musicToggleBtn" class="music-btn" title="Toggle Music">
+    <span class="music-icon" id="musicIcon">🔊</span>
+    <span class="music-wave">
+      <span></span><span></span><span></span><span></span>
+    </span>
+  </button>
+
+  <!-- VIDEO PRELOADER OVERLAY (9:16 Responsive Fit) -->
+  <div id="videoPreloaderOverlay" class="video-preloader-overlay">
+    <div class="video-wrapper">
+      <video id="preloaderVideo" class="preloader-video" playsinline webkit-playsinline preload="auto">
+        <source src="assets/preloader.MP4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Cursive Text Overlay placed directly in the white flap of envelope -->
+      <div id="envelopeCursiveOverlay" class="envelope-cursive-overlay">
+        <span class="cursive-text">
+          <span>Open</span>
+          <span>Invitation</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HERO SECTION -->
+  <main id="heroSection" class="hero-section hidden-hero">
+    <div class="hero-content">
+      
+      <!-- Top Tagline -->
+      <div class="badge-tag">
+        <span class="neon-dot"></span> THE COOLEST PARTY OF THE YEAR
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="main-title">
+        <span class="neon-text-cyan">HAPPY</span>
+        <span class="neon-text-pink">BIRTHDAY!</span>
+      </h1>
+      
+      <div class="person-name-box">
+        <span class="celebrant-title">CELEBRATING</span>
+        <h2 class="celebrant-name neon-text-yellow" id="personName">SURI</h2>
+      </div>
+
+      <!-- Dynamic Countdown Timer -->
+      <div class="countdown-container" id="countdownBox">
+        <div class="time-block">
+          <span class="time-val" id="days">00</span>
+          <span class="time-label">DAYS</span>
+        </div>
+        <span class="time-colon">:</span>
+        <div class="time-block">
+          <span class="time-val" id="hours">00</span>
+          <span class="time-label">HOURS</span>
+        </div>
+        <span class="time-colon">:</span>
+        <div class="time-block">
+          <span class="time-val" id="minutes">00</span>
+          <span class="time-label">MINS</span>
+        </div>
+        <span class="time-colon">:</span>
+        <div class="time-block">
+          <span class="time-val" id="seconds">00</span>
+          <span class="time-label">SECS</span>
+        </div>
+      </div>
+
+      <!-- Event Details Card -->
+      <div class="details-glass-card">
+        <div class="detail-item">
+          <div class="detail-icon neon-border-cyan">📅</div>
+          <div class="detail-info">
+            <span class="label">DATE</span>
+            <span class="value" id="eventDate">Saturday, 24th October 2026</span>
+          </div>
+        </div>
+
+        <div class="detail-divider"></div>
+
+        <div class="detail-item">
+          <div class="detail-icon neon-border-pink">⏰</div>
+          <div class="detail-info">
+            <span class="label">TIME</span>
+            <span class="value" id="eventTime">07:30 PM Onwards</span>
+          </div>
+        </div>
+
+        <div class="detail-divider"></div>
+
+        <div class="detail-item">
+          <div class="detail-icon neon-border-yellow">📍</div>
+          <div class="detail-info">
+            <span class="label">VENUE</span>
+            <span class="value" id="eventVenue">Sky Lounge & Banquet Hall, MG Road</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="cta-group">
+        <button class="btn btn-primary" id="confettiBtn">
+          <span>🎊 Blast Confetti</span>
+        </button>
+        <a href="#eventVenue" class="btn btn-secondary" id="calendarBtn">
+          <span>📍 View Map / Location</span>
+        </a>
+      </div>
+
+      <!-- Personal Note -->
+      <p class="foot-note">
+        ✨ Join us for food, drinks, cake, lots of dancing & unforgettable memories! ✨
+      </p>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
