@@ -194,20 +194,20 @@ function shootSideCannons() {
 // VIDEO PRELOADER TRANSITION LOGIC
 // ===================================================
 const envelopeCursiveOverlay = document.getElementById('envelopeCursiveOverlay');
+const whiteFlashOverlay = document.getElementById('whiteFlashOverlay');
 let isVideoStarted = false;
 
-// When user taps/clicks, video starts playing
+// When user taps/clicks, video starts playing smoothly
 function startPreloaderVideo(e) {
   if (isVideoStarted) return;
   isVideoStarted = true;
 
-  // Immediately fade out the cursive text when touched
+  // Immediately fade out the cursive text smoothly
   if (envelopeCursiveOverlay) {
     envelopeCursiveOverlay.classList.add('hide-text');
   }
 
   if (preloaderVideo) {
-    preloaderVideo.currentTime = 0;
     preloaderVideo.muted = false; // allow video audio if present
     const playPromise = preloaderVideo.play();
     if (playPromise !== undefined) {
@@ -223,39 +223,53 @@ function startPreloaderVideo(e) {
 
 const heroVideo = document.getElementById('heroVideo');
 
-// When video finishes, transition to Hero Section
+// When video finishes, transition to Hero Section with dreamy white glow
 function showHeroAfterVideo() {
   if (isOpened) return;
   isOpened = true;
 
-  // Start synth celebration music
-  synthMusic.start();
-  isAudioPlaying = true;
-  musicToggleBtn.classList.remove('muted');
-  musicIcon.textContent = '🔊';
-
-  // Confetti blast
-  triggerCelebrationConfetti();
-
-  // Hide preloader overlay smoothly & reveal hero section
-  videoPreloaderOverlay.classList.add('hide-preloader');
-  heroSection.classList.remove('hidden-hero');
-  heroSection.classList.add('visible-hero');
-  shootSideCannons();
-
-  // Start playing hero background video continuously on loop
-  if (heroVideo) {
-    heroVideo.currentTime = 0;
-    heroVideo.muted = false; // play with sound if available
-    const heroPromise = heroVideo.play();
-    if (heroPromise !== undefined) {
-      heroPromise.catch(err => {
-        console.warn("Hero video play error, playing muted fallback:", err);
-        heroVideo.muted = true;
-        heroVideo.play();
-      });
-    }
+  // 1. Trigger subtle dreamy white glow flash
+  if (whiteFlashOverlay) {
+    whiteFlashOverlay.classList.add('flash-active');
   }
+
+  setTimeout(() => {
+    // 2. Start synth celebration music
+    synthMusic.start();
+    isAudioPlaying = true;
+    musicToggleBtn.classList.remove('muted');
+    musicIcon.textContent = '🔊';
+
+    // 3. Confetti blast
+    triggerCelebrationConfetti();
+
+    // 4. Hide preloader overlay & reveal hero section seamlessly
+    videoPreloaderOverlay.classList.add('hide-preloader');
+    heroSection.classList.remove('hidden-hero');
+    heroSection.classList.add('visible-hero');
+    shootSideCannons();
+
+    // 5. Start playing hero background video continuously on loop
+    if (heroVideo) {
+      heroVideo.currentTime = 0;
+      heroVideo.muted = false;
+      const heroPromise = heroVideo.play();
+      if (heroPromise !== undefined) {
+        heroPromise.catch(err => {
+          console.warn("Hero video play error, playing muted fallback:", err);
+          heroVideo.muted = true;
+          heroVideo.play();
+        });
+      }
+    }
+
+    // 6. Fade out the white glow smoothly revealing the invitation
+    setTimeout(() => {
+      if (whiteFlashOverlay) {
+        whiteFlashOverlay.classList.remove('flash-active');
+      }
+    }, 250);
+  }, 180);
 }
 
 // Touch or click anywhere to play video
