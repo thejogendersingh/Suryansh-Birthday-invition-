@@ -197,27 +197,34 @@ const envelopeCursiveOverlay = document.getElementById('envelopeCursiveOverlay')
 const whiteFlashOverlay = document.getElementById('whiteFlashOverlay');
 let isVideoStarted = false;
 
-// When user taps/clicks, video starts playing smoothly
+// Preload video ready state
+if (preloaderVideo) {
+  preloaderVideo.load();
+}
+
+// When user taps/clicks, video starts playing instantly and ultra-smoothly
 function startPreloaderVideo(e) {
   if (isVideoStarted) return;
   isVideoStarted = true;
 
-  // Immediately fade out the cursive text smoothly
-  if (envelopeCursiveOverlay) {
-    envelopeCursiveOverlay.classList.add('hide-text');
-  }
-
+  // 1. Immediately play video (muted keeps it 100% instant without browser audio pause delay)
   if (preloaderVideo) {
-    preloaderVideo.muted = false; // allow video audio if present
     const playPromise = preloaderVideo.play();
     if (playPromise !== undefined) {
-      playPromise.catch(err => {
-        // Fallback: in case browser strictly blocks unmuted autoplay
-        console.warn("Autoplay with sound blocked, trying muted:", err);
-        preloaderVideo.muted = true;
-        preloaderVideo.play();
+      playPromise.then(() => {
+        // Smoothly fade out the cursive text once video frame is playing
+        if (envelopeCursiveOverlay) {
+          envelopeCursiveOverlay.classList.add('hide-text');
+        }
+      }).catch(err => {
+        console.warn("Autoplay playback error:", err);
+        if (envelopeCursiveOverlay) {
+          envelopeCursiveOverlay.classList.add('hide-text');
+        }
       });
     }
+  } else if (envelopeCursiveOverlay) {
+    envelopeCursiveOverlay.classList.add('hide-text');
   }
 }
 
@@ -310,9 +317,10 @@ confettiBtn.addEventListener('click', () => {
 });
 
 // ===================================================
-// COUNTDOWN TIMER LOGIC
+// COUNTDOWN TIMER LOGIC (Safely guarded)
 // ===================================================
 function updateCountdown() {
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
   const now = new Date().getTime();
   const distance = targetDate.getTime() - now;
 
@@ -335,5 +343,7 @@ function updateCountdown() {
   secondsEl.textContent = String(seconds).padStart(2, '0');
 }
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
+if (daysEl) {
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+}

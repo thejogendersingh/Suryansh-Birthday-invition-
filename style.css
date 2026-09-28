@@ -259,11 +259,11 @@ body {
    =================================================== */
 .hero-invitation-card {
   position: absolute;
-  top: 52%; /* Content thoda niche kiya gaya hai taaki upper banner se proper gap rahe */
+  top: 50%; /* perfectly centered right in the middle white arch of the video */
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 92%;
-  max-width: 360px;
+  width: 88%;
+  max-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -275,22 +275,22 @@ body {
   border: none;
 }
 
-/* Character Cutout Container: Sized larger and clear as requested */
+/* Character Cutout Container: Normal balanced size fitting the white arch cleanly */
 .suryansh-cutout-wrap {
   position: relative;
   width: 100%;
-  max-width: 225px; /* bigger prominent image size */
+  max-width: 205px; /* normal balanced size with plenty of space above and below */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .suryansh-cutout-img {
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 4px 14px rgba(30, 58, 138, 0.12));
+  filter: drop-shadow(0 4px 12px rgba(30, 58, 138, 0.08));
 }
 
 /* Name centered directly inside the blue ribbon banner */
@@ -299,48 +299,48 @@ body {
   bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
-  width: 82%;
+  width: 80%;
   text-align: center;
   pointer-events: none;
 }
 
 .ribbon-kid-name {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #245280; /* gentle watercolor slate blue matching the banner */
-  letter-spacing: 0.6px;
+  letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
 }
 
-/* Aesthetic Cursive Title - Watercolor theme matching blue */
+/* Aesthetic Cursive Title - Normal clean size */
 .aesthetic-party-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 1.65rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #315b88; /* Elegant slate watercolor blue perfectly matching the ribbon banner */
   letter-spacing: 0.5px;
   margin-top: 2px;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
   background: transparent;
   border: none;
 }
 
-/* Event Details (Date, Time, Venue - Aesthetic typography, NO CIRCLE BOXES) */
+/* Event Details (Date & Venue - Normal clean text, aesthetic spacing) */
 .event-details-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
-  margin-bottom: 9px;
+  gap: 7px;
+  margin-bottom: 14px;
 }
 
 .detail-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 /* Pure minimalist icon without any circle or background box */
@@ -359,61 +359,15 @@ body {
 
 .detail-val {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  color: #1e293b; /* Crisp dark navy/blackish for perfect readability as requested */
-  letter-spacing: 0.25px;
+  color: #1e293b; /* Crisp dark readable text */
+  letter-spacing: 0.2px;
 }
 
 .venue-text {
-  font-size: 0.86rem;
-  color: #334155; /* Soft crisp navy */
-}
-
-/* Countdown Timer: Clean, Aesthetic & Minimal */
-.hero-countdown {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  margin-bottom: 11px;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.count-unit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 32px;
-}
-
-.count-num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #1e293b;
-  line-height: 1;
-}
-
-.count-txt {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.52rem;
-  font-weight: 600;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: #94a3b8;
-  margin-top: 2px;
-}
-
-.count-sep {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #94a3b8;
-  line-height: 1;
-  margin-bottom: 6px;
+  font-size: 0.84rem;
+  color: #334155;
 }
 
 /* Aesthetic Soft Gradient Button */
@@ -421,10 +375,10 @@ body {
   background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 1px;
-  padding: 8px 22px;
+  padding: 9px 26px;
   border-radius: 30px;
   border: none;
   cursor: pointer;

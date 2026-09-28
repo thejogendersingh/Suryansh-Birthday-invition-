@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Birthday Celebration Invitation 🎉</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
+
 <body>
 
   <!-- Music Toggle Floating Button -->
@@ -23,7 +27,8 @@
   <!-- VIDEO PRELOADER OVERLAY (9:16 Responsive Fit) -->
   <div id="videoPreloaderOverlay" class="video-preloader-overlay">
     <div class="video-wrapper">
-      <video id="preloaderVideo" class="preloader-video" poster="assets/poster.jpg" playsinline webkit-playsinline muted preload="auto">
+      <video id="preloaderVideo" class="preloader-video" poster="assets/poster.jpg" playsinline webkit-playsinline muted
+        preload="auto">
         <source src="assets/preloader.MP4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -44,7 +49,8 @@
   <!-- MAIN HERO SECTION (Full-Screen Continuous Playing Video with Aesthetic Invitation Overlay) -->
   <main id="heroSection" class="hero-section hidden-hero">
     <div class="hero-video-wrapper">
-      <video id="heroVideo" class="hero-video" poster="assets/hero-poster.jpg" loop playsinline webkit-playsinline muted preload="auto">
+      <video id="heroVideo" class="hero-video" poster="assets/hero-poster.jpg" loop playsinline webkit-playsinline muted
+        preload="auto">
         <source src="assets/hero-bg.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -52,11 +58,11 @@
       <!-- Aesthetic Baby Invitation Overlay Matching The Video & Reference Design -->
       <!-- Aesthetic Baby Invitation Overlay Matching The Reference Image -->
       <div class="hero-invitation-card">
-        
+
         <!-- Center Character Image Cutout (Baby with Party Hat, Candle #1, Balloons & Ribbon) -->
         <div class="suryansh-cutout-wrap">
           <img src="assets/suryansh.png" alt="Suryansh" class="suryansh-cutout-img">
-          
+
           <!-- Name positioned directly inside the blue watercolor ribbon banner -->
           <div class="ribbon-name-overlay">
             <span class="ribbon-kid-name">Suryansh's</span>
@@ -68,7 +74,7 @@
           1st Birthday Party
         </div>
 
-        <!-- Event Details: Date, Time & Venue (Clean Minimalist Aesthetic, No Circle Boxes) -->
+        <!-- Event Details: Date & Venue (Clean Minimalist Aesthetic, No Circle Boxes) -->
         <div class="event-details-text">
           <div class="detail-row">
             <span class="detail-icon">
@@ -82,16 +88,6 @@
             <span class="detail-val">Sunday, 4th October 2026</span>
           </div>
 
-          <div class="detail-row">
-            <span class="detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-            </span>
-            <span class="detail-val">06:00 PM Onwards</span>
-          </div>
-
           <div class="detail-row venue-row">
             <span class="detail-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -100,29 +96,6 @@
               </svg>
             </span>
             <span class="detail-val venue-text">Murphy's, Kalpana, Rawatsar Rd</span>
-          </div>
-        </div>
-
-        <!-- Countdown Timer: Ultra Clean & Subtle -->
-        <div class="hero-countdown" id="countdownBox">
-          <div class="count-unit">
-            <span class="count-num" id="days">00</span>
-            <span class="count-txt">Days</span>
-          </div>
-          <span class="count-sep">:</span>
-          <div class="count-unit">
-            <span class="count-num" id="hours">00</span>
-            <span class="count-txt">Hours</span>
-          </div>
-          <span class="count-sep">:</span>
-          <div class="count-unit">
-            <span class="count-num" id="minutes">00</span>
-            <span class="count-txt">Mins</span>
-          </div>
-          <span class="count-sep">:</span>
-          <div class="count-unit">
-            <span class="count-num" id="seconds">00</span>
-            <span class="count-txt">Secs</span>
           </div>
         </div>
 
@@ -136,4 +109,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
