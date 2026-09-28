@@ -228,7 +228,41 @@ function startPreloaderVideo(e) {
   }
 }
 
-const heroVideo = document.getElementById('heroVideo');
+const bgSong = document.getElementById('bgSong');
+let songTimer = null;
+
+// Function to smoothly play the song after 3 seconds in hero section
+function playBirthdaySongWithDelay() {
+  if (songTimer) clearTimeout(songTimer);
+  
+  // 3-second delay as explicitly requested
+  songTimer = setTimeout(() => {
+    if (!isOpened || !bgSong) return;
+    bgSong.currentTime = 0;
+    bgSong.volume = 0;
+    const playPromise = bgSong.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        isAudioPlaying = true;
+        if (musicToggleBtn) musicToggleBtn.classList.remove('muted');
+        
+        // Smoothly fade in volume over 1.5s
+        let vol = 0;
+        const fadeInInterval = setInterval(() => {
+          vol += 0.05;
+          if (vol >= 0.85) {
+            bgSong.volume = 0.85;
+            clearInterval(fadeInInterval);
+          } else {
+            bgSong.volume = vol;
+          }
+        }, 80);
+      }).catch(err => {
+        console.warn("Audio autoplay blocked by browser policy:", err);
+      });
+    }
+  }, 3000);
+}
 
 // When video finishes, transition to Hero Section with dreamy white glow
 function showHeroAfterVideo() {
@@ -241,11 +275,8 @@ function showHeroAfterVideo() {
   }
 
   setTimeout(() => {
-    // 2. Start synth celebration music
-    synthMusic.start();
-    isAudioPlaying = true;
-    musicToggleBtn.classList.remove('muted');
-    musicIcon.textContent = '🔊';
+    // 2. Schedule Birthday Song to play after 3 seconds in hero section
+    playBirthdaySongWithDelay();
 
     // 3. Confetti blast
     triggerCelebrationConfetti();
@@ -256,16 +287,14 @@ function showHeroAfterVideo() {
     heroSection.classList.add('visible-hero');
     shootSideCannons();
 
-    // 5. Start playing hero background video continuously on loop
+    // 5. Start playing hero background video continuously on loop (always silent video)
     if (heroVideo) {
       heroVideo.currentTime = 0;
-      heroVideo.muted = false;
+      heroVideo.muted = true; // muted as video audio was stripped and user only wants the song
       const heroPromise = heroVideo.play();
       if (heroPromise !== undefined) {
         heroPromise.catch(err => {
-          console.warn("Hero video play error, playing muted fallback:", err);
-          heroVideo.muted = true;
-          heroVideo.play();
+          console.warn("Hero video play error:", err);
         });
       }
     }
@@ -291,20 +320,21 @@ if (preloaderVideo) {
 }
 
 // ===================================================
-// MUSIC TOGGLE BUTTON
+// MUSIC TOGGLE BUTTON (Controls the Birthday Song)
 // ===================================================
 musicToggleBtn.addEventListener('click', (e) => {
   e.stopPropagation();
+  if (!bgSong) return;
+
   if (isAudioPlaying) {
-    synthMusic.stop();
+    bgSong.pause();
     isAudioPlaying = false;
     musicToggleBtn.classList.add('muted');
-    musicIcon.textContent = '🔇';
   } else {
-    synthMusic.start();
-    isAudioPlaying = true;
-    musicToggleBtn.classList.remove('muted');
-    musicIcon.textContent = '🔊';
+    bgSong.play().then(() => {
+      isAudioPlaying = true;
+      musicToggleBtn.classList.remove('muted');
+    }).catch(err => console.warn("Song play blocked", err));
   }
 });
 

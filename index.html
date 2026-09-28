@@ -16,13 +16,24 @@
 
 <body>
 
-  <!-- Music Toggle Floating Button -->
+  <!-- Music Toggle Floating Button (Clean SVG Vector Icon) -->
   <button id="musicToggleBtn" class="music-btn" title="Toggle Music">
-    <span class="music-icon" id="musicIcon">🔊</span>
-    <span class="music-wave">
-      <span></span><span></span><span></span><span></span>
+    <span class="music-icon" id="musicIcon">
+      <svg class="svg-speaker-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      </svg>
+      <svg class="svg-speaker-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
     </span>
   </button>
+
+  <!-- Birthday Music Audio Element (Cute Song from YouTube) -->
+  <audio id="bgSong" src="assets/birthday-song.mp3" preload="auto" loop></audio>
 
   <!-- VIDEO PRELOADER OVERLAY (9:16 Responsive Fit) -->
   <div id="videoPreloaderOverlay" class="video-preloader-overlay">
@@ -65,7 +76,7 @@
 
           <!-- Name positioned directly inside the blue watercolor ribbon banner -->
           <div class="ribbon-name-overlay">
-            <span class="ribbon-kid-name">Suryansh's</span>
+            <span class="ribbon-kid-name">Suryansh</span>
           </div>
         </div>
 
@@ -95,13 +106,16 @@
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </span>
-            <span class="detail-val venue-text">Murphy's, Kalpana, Rawatsar Rd</span>
+            <span class="detail-val venue-text">Kalpana's Murphy, Rawatsar Rd</span>
           </div>
         </div>
 
-        <!-- Join Celebration Subtle Button -->
+        <!-- Join Celebration Subtle Button (Clean SVG Sparkle Icon, No Emoji) -->
         <button class="celebrate-btn" id="confettiBtn">
-          <span>Join Celebration 🎊</span>
+          <span>Join Celebration</span>
+          <svg class="btn-sparkle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l1.912 5.886a1 1 0 00.95.69h6.19l-5.008 3.638a1 1 0 00-.364 1.118l1.912 5.886-5.008-3.638a1 1 0 00-1.176 0l-5.008 3.638 1.912-5.886a1 1 0 00-.364-1.118L2.948 9.576h6.19a1 1 0 00.95-.69L12 3z"></path>
+          </svg>
         </button>
       </div>
     </div>
