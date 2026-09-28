@@ -202,7 +202,7 @@ body {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background-color: #000;
+  background-color: #dbeafe; /* matches the soft pastel blue palette so zero harsh black */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -210,7 +210,7 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s ease;
 }
 
 .hidden-hero {
@@ -226,10 +226,10 @@ body {
 }
 
 .hero-video-wrapper {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -241,9 +241,9 @@ body {
 .hero-video {
   width: 100%;
   height: 100%;
-  max-width: none;
-  max-height: none;
-  object-fit: cover; /* Zero black bars! Seamlessly fills entire mobile screen in 9:16 */
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover; /* Zero black bars! Fills the entire screen seamlessly */
   object-position: center center;
   display: block;
 }
