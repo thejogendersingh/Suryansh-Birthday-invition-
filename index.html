@@ -85,41 +85,60 @@
           1st Birthday Party
         </div>
 
-        <!-- Event Details Card Wrapped with Delicate Dotted Border -->
-        <div class="event-card-wrapper">
-          <div class="event-details-text">
-            <div class="detail-row">
-              <span class="detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="3" ry="3"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-              </span>
-              <span class="detail-val">Sunday, 4th October 2026</span>
-            </div>
+        <!-- Event Details: Date & Venue -->
+        <div class="event-details-text">
+          <div class="detail-row">
+            <span class="detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="3" ry="3"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </span>
+            <span class="detail-val">Sunday, 4th October 2026</span>
+          </div>
 
-            <!-- Function Time 06:00 PM Onwards as requested -->
-            <div class="detail-row time-row">
-              <span class="detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-              </span>
-              <span class="detail-val">06:00 PM Onwards</span>
-            </div>
+          <div class="detail-row venue-row">
+            <span class="detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span class="detail-val venue-text">Kalpana's Murphy, Rawatsar Rd</span>
+          </div>
+        </div>
 
-            <div class="detail-row venue-row">
-              <span class="detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </span>
-              <span class="detail-val venue-text">Kalpana's Murphy, Rawatsar Rd</span>
+        <!-- Ticking Countdown Timer inside Scratch & Reveal Dotted Border Wrap -->
+        <div class="scratch-reveal-card" id="scratchRevealCard">
+          <!-- Underlying Live Ticking Countdown to 4 Oct 6:00 PM -->
+          <div class="hero-countdown" id="countdownBox">
+            <div class="count-unit">
+              <span class="count-num" id="days">00</span>
+              <span class="count-txt">Days</span>
             </div>
+            <span class="count-sep">:</span>
+            <div class="count-unit">
+              <span class="count-num" id="hours">00</span>
+              <span class="count-txt">Hours</span>
+            </div>
+            <span class="count-sep">:</span>
+            <div class="count-unit">
+              <span class="count-num" id="minutes">00</span>
+              <span class="count-txt">Mins</span>
+            </div>
+            <span class="count-sep">:</span>
+            <div class="count-unit">
+              <span class="count-num" id="seconds">00</span>
+              <span class="count-txt">Secs</span>
+            </div>
+          </div>
+
+          <!-- Scratchable Canvas Overlay matching theme watercolor style -->
+          <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+          <div id="scratchHint" class="scratch-hint">
+            <span>Scratch to Reveal Countdown</span>
           </div>
         </div>
 

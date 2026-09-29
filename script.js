@@ -341,7 +341,7 @@ confettiBtn.addEventListener('click', () => {
 });
 
 // ===================================================
-// COUNTDOWN TIMER LOGIC (Safely guarded)
+// COUNTDOWN TIMER LOGIC (Ticks to 4th October 2026, 06:00 PM)
 // ===================================================
 function updateCountdown() {
   if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
@@ -367,7 +367,95 @@ function updateCountdown() {
   secondsEl.textContent = String(seconds).padStart(2, '0');
 }
 
-if (daysEl) {
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
+// Start live ticking countdown immediately
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ===================================================
+// SCRATCH & REVEAL INTERACTION FOR COUNTDOWN
+// ===================================================
+const scratchCanvas = document.getElementById('scratchCanvas');
+const scratchRevealCard = document.getElementById('scratchRevealCard');
+const scratchHint = document.getElementById('scratchHint');
+
+function initScratchCard() {
+  if (!scratchCanvas || !scratchRevealCard) return;
+
+  const ctx = scratchCanvas.getContext('2d');
+  const rect = scratchRevealCard.getBoundingClientRect();
+  
+  // High-DPI canvas resolution
+  const dpr = window.devicePixelRatio || 1;
+  scratchCanvas.width = rect.width * dpr;
+  scratchCanvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+
+  // Paint aesthetic realistic scratch-card silver/blue watercolor foil coating
+  const grad = ctx.createLinearGradient(0, 0, rect.width, rect.height);
+  grad.addColorStop(0, '#dbeafe');
+  grad.addColorStop(0.3, '#bfdbfe');
+  grad.addColorStop(0.7, '#93c5fd');
+  grad.addColorStop(1, '#c7dcfb');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, rect.width, rect.height);
+
+  // Realistic scratch foil subtle diagonal texture
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+  ctx.lineWidth = 1;
+  for (let x = -rect.height; x < rect.width; x += 10) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x + rect.height, rect.height);
+    ctx.stroke();
+  }
+
+  // Soft sparkle dusting
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+  for (let i = 0; i < 24; i++) {
+    const rx = (Math.sin(i * 99) * 0.5 + 0.5) * rect.width;
+    const ry = (Math.cos(i * 33) * 0.5 + 0.5) * rect.height;
+    ctx.beginPath();
+    ctx.arc(rx, ry, 1.2, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  let isScratching = false;
+  let scratchedPixels = 0;
+  let isCardRevealed = false;
+
+  function scratch(e) {
+    if (!isScratching || isCardRevealed) return;
+    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+    if (clientX === undefined || clientY === undefined) return;
+
+    const b = scratchCanvas.getBoundingClientRect();
+    const x = clientX - b.left;
+    const y = clientY - b.top;
+
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, 16, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Check scratch completion
+    scratchedPixels++;
+    if (scratchedPixels > 20 && !isCardRevealed) {
+      isCardRevealed = true;
+      scratchRevealCard.classList.add('revealed');
+      triggerCelebrationConfetti(); // cute celebratory blast when revealed!
+    }
+  }
+
+  scratchCanvas.addEventListener('mousedown', (e) => { isScratching = true; scratch(e); });
+  window.addEventListener('mouseup', () => { isScratching = false; });
+  scratchCanvas.addEventListener('mousemove', scratch);
+
+  scratchCanvas.addEventListener('touchstart', (e) => { isScratching = true; scratch(e); }, { passive: true });
+  window.addEventListener('touchend', () => { isScratching = false; });
+  scratchCanvas.addEventListener('touchmove', scratch, { passive: true });
 }
+
+// Initialize scratch canvas once DOM / fonts are ready
+window.addEventListener('load', initScratchCard);
+setTimeout(initScratchCard, 500);

@@ -179,15 +179,16 @@ body {
 
 .cursive-text {
   font-family: 'Dancing Script', cursive;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 700;
-  color: #1e3a8a; /* Deep elegant royal blue matching baby blue palette */
-  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95), 0 0 8px rgba(186, 230, 253, 0.6);
-  letter-spacing: 0.5px;
+  color: #2a629a; /* Perfect watercolor theme blue matching the ribbon bow */
+  -webkit-text-stroke: 0.35px #2a629a; /* Minor bold enhancement */
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 6px rgba(186, 230, 253, 0.5);
+  letter-spacing: 0.6px;
   display: flex;
   flex-direction: column; /* Alag alag line me */
   align-items: center;
-  line-height: 1.1;
+  line-height: 1.12;
   user-select: none;
   /* Zero movement/floating - completely still and steady as requested */
 }
@@ -344,23 +345,13 @@ body {
   border: none;
 }
 
-/* Event Details Card: Wrapped with Delicate Dotted Border */
-.event-card-wrapper {
-  border: 1px dotted rgba(74, 144, 226, 0.45); /* thin delicate dotted border matching watercolor theme */
-  border-radius: 16px;
-  padding: 8px 16px;
-  margin-bottom: 14px;
-  background: rgba(255, 255, 255, 0.35); /* subtle airy translucent touch */
-  backdrop-filter: blur(4px);
-}
-
-/* Event Details (Date, Time & Venue - Aesthetic spacing) */
+/* Event Details (Date & Venue) */
 .event-details-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .detail-row {
@@ -395,6 +386,134 @@ body {
 .venue-text {
   font-size: 0.84rem;
   color: #334155;
+}
+
+/* ===================================================
+   SCRATCH & REVEAL COUNTDOWN CARD (WHITE DOTTED INNER BORDER)
+   =================================================== */
+.scratch-reveal-card {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  cursor: grab;
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.08);
+}
+
+/* White Dotted Border placed inside (inner padding) */
+.scratch-reveal-card::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1.5px dotted rgba(255, 255, 255, 0.85); /* Clean white dotted border inside */
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.scratch-reveal-card:active {
+  cursor: grabbing;
+}
+
+/* Ticking Countdown Timer styling */
+.hero-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  z-index: 1;
+}
+
+.count-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 30px;
+}
+
+.count-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+}
+
+.count-txt {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.48rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.count-sep {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #94a3b8;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+/* Scratch Canvas Overlay */
+.scratch-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  border-radius: 12px;
+  touch-action: none;
+  transition: opacity 0.5s ease;
+}
+
+.scratch-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.scratch-hint span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #1e456e;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.scratch-reveal-card.revealed .scratch-canvas,
+.scratch-reveal-card.revealed .scratch-hint {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scratch-reveal-card.revealed::after {
+  border-color: rgba(74, 144, 226, 0.4); /* subtle blue dotted inner border once countdown revealed */
 }
 
 /* Aesthetic Button - Color matched directly to the watercolor theme */
