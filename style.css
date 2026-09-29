@@ -344,13 +344,23 @@ body {
   border: none;
 }
 
-/* Event Details (Date & Venue - Aesthetic spacing) */
+/* Event Details Card: Wrapped with Delicate Dotted Border */
+.event-card-wrapper {
+  border: 1px dotted rgba(74, 144, 226, 0.45); /* thin delicate dotted border matching watercolor theme */
+  border-radius: 16px;
+  padding: 8px 16px;
+  margin-bottom: 14px;
+  background: rgba(255, 255, 255, 0.35); /* subtle airy translucent touch */
+  backdrop-filter: blur(4px);
+}
+
+/* Event Details (Date, Time & Venue - Aesthetic spacing) */
 .event-details-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 0;
 }
 
 .detail-row {
@@ -369,21 +379,21 @@ body {
 }
 
 .detail-icon svg {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   stroke: #315b88;
 }
 
 .detail-val {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #1e293b; /* Crisp dark readable text */
   letter-spacing: 0.2px;
 }
 
 .venue-text {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   color: #334155;
 }
 
